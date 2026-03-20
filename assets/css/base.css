@@ -371,6 +371,12 @@ body {
   display: block;
 }
 
+.scrolling-area-img {
+  height: 420px;
+  object-fit: cover;
+  object-position: center 20%;
+}
+
 /* =====================
    STATS
    ===================== */
