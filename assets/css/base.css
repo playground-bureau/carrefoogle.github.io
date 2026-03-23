@@ -552,3 +552,305 @@ body {
   max-width: 800px;
   margin: 0 auto;
 }
+
+/* =====================
+   HAMBURGER TOGGLE
+   ===================== */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 101;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--text);
+  margin: 5px 0;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.nav-open .nav-toggle span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.nav-open .nav-toggle span:nth-child(2) {
+  opacity: 0;
+}
+.nav-open .nav-toggle span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* =====================
+   RESPONSIVE — TABLET (768px)
+   ===================== */
+@media (max-width: 768px) {
+  /* Nav */
+  .nav {
+    padding: 16px 24px;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-tagline {
+    font-size: 10px;
+    padding-left: 8px;
+  }
+
+  /* Images must fill width when stacked */
+  .split-image {
+    width: 100%;
+  }
+
+  .split-image img {
+    width: 100%;
+  }
+
+  .scrolling-area-img {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: #ffffff;
+    padding: 16px 24px;
+    gap: 0;
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .nav-open .nav-links {
+    display: flex;
+  }
+
+  .nav-links li a {
+    display: block;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-links li:last-child a {
+    border-bottom: none;
+  }
+
+  /* Hero */
+  .hero {
+    min-height: 500px;
+  }
+
+  .hero-title {
+    font-size: 36px;
+  }
+
+  .hero-kicker {
+    font-size: 14px;
+  }
+
+  /* Sections */
+  .section,
+  .section-dark,
+  .section-light,
+  .section-accent {
+    padding: 48px 24px;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+
+  /* Split layouts → stack vertically */
+  .split {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .split-reverse {
+    flex-direction: column;
+  }
+
+  /* Card grid → 2 columns on tablet */
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  /* Stats → wrap */
+  .stats-grid {
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+
+  .stat {
+    min-width: 120px;
+  }
+
+  .stat-number {
+    font-size: 36px;
+  }
+
+  /* News → single column */
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Quote */
+  .quote-text {
+    font-size: 18px;
+  }
+
+  /* Footer → wrap into 2-3 cols */
+  .footer {
+    padding: 40px 24px 24px;
+  }
+
+  .footer-grid {
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+
+  .footer-col {
+    flex: none;
+    width: calc(50% - 16px);
+  }
+
+  /* Scrolling area image */
+  .scrolling-area-img {
+    height: 280px;
+  }
+
+  /* Intro */
+  .intro-text {
+    font-size: 16px;
+  }
+}
+
+/* =====================
+   RESPONSIVE — MOBILE (480px)
+   ===================== */
+@media (max-width: 480px) {
+  /* Nav */
+  .nav {
+    padding: 12px 16px;
+  }
+
+  .nav-logo img {
+    height: 32px;
+  }
+
+  .nav-tagline {
+    font-size: 9px;
+    padding-left: 6px;
+    max-width: 80px;
+    line-height: 1.2;
+  }
+
+  /* Hero */
+  .hero {
+    min-height: 400px;
+  }
+
+  .hero-title {
+    font-size: 28px;
+  }
+
+  .hero-content {
+    padding: 0 16px;
+  }
+
+  /* Sections */
+  .section,
+  .section-dark,
+  .section-light,
+  .section-accent {
+    padding: 36px 16px;
+  }
+
+  .section-title {
+    font-size: 24px;
+  }
+
+  /* Card grid → single column */
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 24px 20px;
+  }
+
+  /* Stats → 2 per row */
+  .stats-grid {
+    gap: 24px 16px;
+    justify-content: space-around;
+  }
+
+  .stat {
+    min-width: 100px;
+  }
+
+  .stat-number {
+    font-size: 28px;
+  }
+
+  .stat-label {
+    font-size: 11px;
+  }
+
+  /* Quote */
+  .quote-text {
+    font-size: 16px;
+  }
+
+  .quote-photo {
+    width: 80px;
+    height: 80px;
+  }
+
+  /* Footer → single column */
+  .footer-col {
+    width: 100%;
+  }
+
+  .footer-grid {
+    gap: 24px;
+  }
+
+  /* Button */
+  .btn {
+    padding: 12px 24px;
+    font-size: 13px;
+  }
+
+  /* Scrolling area image */
+  .scrolling-area-img {
+    height: 220px;
+  }
+
+  /* Angle divider */
+  .angle-divider {
+    height: 40px;
+    margin-top: -40px;
+  }
+
+  /* Body text */
+  .body-text {
+    font-size: 15px;
+  }
+
+  /* News */
+  .news-item {
+    padding: 16px;
+  }
+}
