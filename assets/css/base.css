@@ -103,6 +103,11 @@ body {
   justify-content: center;
 }
 
+.hero-short {
+  height: 50vh;
+  min-height: 350px;
+}
+
 .hero-img {
   position: absolute;
   inset: 0;
@@ -648,6 +653,11 @@ body {
   /* Hero */
   .hero {
     min-height: 500px;
+  }
+
+  .hero-short {
+    height: 40vh;
+    min-height: 250px;
   }
 
   .hero-title {
