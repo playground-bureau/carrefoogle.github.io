@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Jobs — Carrefoogle Corporation</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Join Carrefoogle Corporation. We are always looking for driven, adaptable individuals who believe that human connection can be improved through measurement, optimization, and scale.">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <style>
+      .jobs-intro {
+        max-width: 760px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .job-list {
+        max-width: 860px;
+        margin: 0 auto;
+      }
+      .job-card {
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 36px 32px;
+        margin-bottom: 20px;
+        transition: border-color 0.2s, box-shadow 0.2s;
+        cursor: pointer;
+      }
+      .job-card:hover {
+        border-color: var(--primary);
+        box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      }
+      .job-card h3 {
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 8px;
+      }
+      .job-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 20px;
+        margin-bottom: 16px;
+      }
+      .job-meta span {
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--text-muted);
+        letter-spacing: 0.02em;
+      }
+      .job-meta span::before {
+        content: '';
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--primary);
+        margin-right: 8px;
+        vertical-align: middle;
+        opacity: 0.5;
+      }
+      .job-desc {
+        font-size: 15px;
+        line-height: 1.75;
+        color: var(--text-light);
+        margin-bottom: 0;
+      }
+      .job-desc p {
+        margin-bottom: 12px;
+      }
+      .job-desc p:last-child {
+        margin-bottom: 0;
+      }
+
+      /* Application form */
+      .apply-section {
+        max-width: 640px;
+        margin: 0 auto;
+      }
+      .apply-section h2 {
+        text-align: center;
+      }
+      .apply-intro {
+        text-align: center;
+        font-size: 16px;
+        line-height: 1.7;
+        color: var(--text-light);
+        margin-bottom: 40px;
+      }
+      .form-group {
+        margin-bottom: 20px;
+      }
+      .form-group label {
+        display: block;
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: 6px;
+      }
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        padding: 12px 14px;
+        font-size: 15px;
+        font-family: inherit;
+        color: var(--text);
+        background: #ffffff;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        transition: border-color 0.2s;
+      }
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--primary);
+      }
+      .form-group textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+      .form-consent {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        margin: 28px 0 32px;
+      }
+      .form-consent input[type="checkbox"] {
+        margin-top: 4px;
+        width: 16px;
+        height: 16px;
+        flex-shrink: 0;
+        accent-color: var(--primary);
+      }
+      .form-consent label {
+        font-size: 13px;
+        line-height: 1.6;
+        color: var(--text-light);
+      }
+      .form-submit {
+        display: block;
+        width: 100%;
+        padding: 16px;
+        font-size: 15px;
+        font-weight: 600;
+        font-family: inherit;
+        letter-spacing: 0.03em;
+        color: #ffffff;
+        background: var(--primary);
+        border: none;
+        border-radius: var(--radius);
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .form-submit:hover {
+        background: var(--primary-dark);
+      }
+      .form-fine-print {
+        margin-top: 24px;
+        font-size: 11px;
+        line-height: 1.6;
+        color: var(--text-muted);
+        font-style: italic;
+        text-align: center;
+      }
+
+      @media (max-width: 768px) {
+        .job-card {
+          padding: 24px 20px;
+        }
+        .job-card h3 {
+          font-size: 19px;
+        }
+      }
+      @media (max-width: 480px) {
+        .job-card {
+          padding: 20px 16px;
+        }
+        .job-card h3 {
+          font-size: 17px;
+        }
+        .job-meta {
+          gap: 4px 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- Navigation -->
+    <nav class="nav">
+      <a href="/" class="nav-logo">
+        <img src="assets/images/logos/carrefoogle-logo.jpeg" alt="Carrefoogle" height="40">
+        <span class="nav-tagline">Because you deserve easy&trade;</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav').classList.toggle('nav-open')">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="our-story.html">Our Story</a></li>
+        <li><a href="leadership.html">Leadership</a></li>
+        <li><a href="maintenance.html">Businesses</a></li>
+        <li><a href="maintenance.html">Products</a></li>
+        <li><a href="maintenance.html">Newsroom</a></li>
+        <li><a href="jobs.html">Jobs</a></li>
+      </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero hero-short">
+      <img src="assets/images/hero/landing-image.jpeg" alt="Carrefoogle Campus" class="hero-img">
+      <div class="hero-content">
+        <p class="hero-kicker">420,000+ Employees &bull; 420 Countries</p>
+        <h1 class="hero-title">Jobs at Carrefoogle</h1>
+      </div>
+    </section>
+
+    <!-- Intro -->
+    <section class="section">
+      <div class="jobs-intro reveal">
+        <p class="body-text" style="text-align: center; font-size: 18px;">Carrefoogle employs over 420,000 people across 420 countries. We are always looking for driven, adaptable individuals who believe that human connection can be improved through measurement, optimization, and scale. If that sounds like you &mdash; or if it doesn&rsquo;t, but you&rsquo;re open to reconsidering &mdash; we&rsquo;d like to hear from you.</p>
+      </div>
+    </section>
+
+    <!-- Job Listings -->
+    <section class="section section-light">
+      <h2 class="section-title reveal">Open Positions</h2>
+      <div class="job-list">
+
+        <div class="job-card reveal" onclick="document.getElementById('apply').scrollIntoView({behavior:'smooth'})">
+          <h3>Field Researcher &mdash; Community Sciences Division</h3>
+          <div class="job-meta">
+            <span>Various (assigned at deployment)</span>
+            <span>Community Sciences</span>
+            <span>Full-Time &bull; Clearance Level: Amber</span>
+          </div>
+          <div class="job-desc">
+            <p>The Community Sciences Division is seeking Field Researchers to support ongoing observation and documentation initiatives in naturalistic social environments. Researchers will embed in community gatherings, public events, and interpersonal settings to collect behavioral data using Carrefoogle&rsquo;s proprietary Emotional Cadence Mapping (ECM) framework.</p>
+            <p>Candidates should be comfortable in sustained social situations and capable of maintaining detailed internal notes without the use of visible recording equipment. A background in anthropology, behavioral psychology, or hospitality is preferred. Prior intelligence experience is welcomed but not required.</p>
+            <p>This is a field-based role. You will not be assigned a desk, a team, or a manager you will meet in person. Performance is evaluated quarterly based on data volume and pattern novelty.</p>
+          </div>
+        </div>
+
+        <div class="job-card reveal" onclick="document.getElementById('apply').scrollIntoView({behavior:'smooth'})">
+          <h3>Companion Dialogue Designer &mdash; Bestie 3.0</h3>
+          <div class="job-meta">
+            <span>Carrefoogle Campus, Building 11 (Sub-Level 2)</span>
+            <span>Consumer Products &mdash; Bestie Division</span>
+            <span>Full-Time</span>
+          </div>
+          <div class="job-desc">
+            <p>The Bestie team is looking for a Companion Dialogue Designer to develop conversational frameworks for Bestie 3.0, our next-generation companion AI. In this role, you will write, test, and refine the dialogue trees that allow Bestie to simulate reciprocal emotional relationships across a range of attachment styles.</p>
+            <p>You will work closely with the Behavioral Calibration team to ensure that Bestie&rsquo;s responses feel authentic, supportive, and difficult to distinguish from those of a close personal friend. Our goal is a companion experience so seamless that users no longer experience the transition as a transition.</p>
+            <p>Candidates must submit a portfolio of original conversational writing. Applicants who describe themselves as &ldquo;empaths&rdquo; will be prioritized.</p>
+          </div>
+        </div>
+
+        <div class="job-card reveal" onclick="document.getElementById('apply').scrollIntoView({behavior:'smooth'})">
+          <h3>Regulatory Compliance Specialist &mdash; Oral Connectivity</h3>
+          <div class="job-meta">
+            <span>Carrefoogle Campus or Remote</span>
+            <span>Bluetooth Toothpaste&trade; Division</span>
+            <span>Full-Time</span>
+          </div>
+          <div class="job-desc">
+            <p>Carrefoogle&rsquo;s Bluetooth Toothpaste&trade; Division is seeking a Regulatory Compliance Specialist to manage the evolving legal landscape surrounding connected oral care products. You will monitor and respond to regulatory inquiries across 420 jurisdictions, prepare documentation for product safety reviews, and liaise with government agencies regarding data collected during brushing sessions.</p>
+            <p>This is a high-volume role. The Bluetooth Toothpaste&trade; product line currently faces active regulatory questions in 42 countries, with pending inquiries in 4.20 additional markets. The ideal candidate is detail-oriented, comfortable with ambiguity, and not easily discouraged by cease-and-desist correspondence.</p>
+          </div>
+        </div>
+
+        <div class="job-card reveal" onclick="document.getElementById('apply').scrollIntoView({behavior:'smooth'})">
+          <h3>Separation Index Analyst</h3>
+          <div class="job-meta">
+            <span>Carrefoogle Campus, Building 7</span>
+            <span>Carrefoogle Institute of Technology</span>
+            <span>Full-Time &bull; Clearance Level: Amber</span>
+          </div>
+          <div class="job-desc">
+            <p>The Carrefoogle Institute of Technology is hiring a Separation Index Analyst to support our ongoing research into the measurable dynamics of human disconnection. You will work with large-scale behavioral datasets to identify, categorize, and quantify patterns of social withdrawal, relationship erosion, and community fragmentation.</p>
+            <p>This role does not involve intervention. Your work is observational and analytical. Findings are published internally and shared with relevant product teams to inform feature development.</p>
+            <p>Candidates should hold an advanced degree in computational social science, network analysis, or a related quantitative field. Familiarity with Carrefoogle&rsquo;s Goodtimesium&trade; (GTM) metrics framework is a plus. Familiarity with Separatoxin discourse is not required and is gently discouraged.</p>
+          </div>
+        </div>
+
+        <div class="job-card reveal" onclick="document.getElementById('apply').scrollIntoView({behavior:'smooth'})">
+          <h3>Executive Communications Coordinator &mdash; Board of Stewardship</h3>
+          <div class="job-meta">
+            <span>Carrefoogle Global Headquarters</span>
+            <span>Corporate Affairs</span>
+            <span>Full-Time</span>
+          </div>
+          <div class="job-desc">
+            <p>The Board of Stewardship requires an Executive Communications Coordinator to draft, review, and distribute all internal and external communications on behalf of the Board. The Board does not speak publicly and does not attend events. All statements attributed to the Board are written by this role.</p>
+            <p>You will be responsible for the Board&rsquo;s Annual Values Statement, quarterly investor letters, and all philanthropic messaging. You will also draft the Board&rsquo;s position on emerging public controversies, typically within 4.20 hours of the controversy becoming public. Previous positions are archived but not referenced; each response is composed independently.</p>
+            <p>Strong candidates will demonstrate the ability to write with warmth, moral clarity, and a tone of institutional permanence. You will not meet the Board.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Application Form -->
+    <section class="section" id="apply">
+      <div class="apply-section">
+        <h2 class="section-title reveal">Apply to Carrefoogle</h2>
+        <p class="apply-intro reveal">Ready to do the most important work of your career? Submit your information below and a member of our Talent Alignment team will be in touch &mdash; or will have already been in touch, depending on your data profile. All fields are required. Optional fields are also required.</p>
+
+        <form class="reveal" onsubmit="event.preventDefault(); this.querySelector('.form-submit').textContent='Application Received. You Have Been Noted.'; this.querySelector('.form-submit').disabled=true; this.querySelector('.form-submit').style.background='var(--text-muted)';">
+
+          <div class="form-group">
+            <label for="legal-name">Full Legal Name</label>
+            <input type="text" id="legal-name" name="legal-name" required placeholder="As it appears on government-issued identification">
+          </div>
+
+          <div class="form-group">
+            <label for="preferred-name">Preferred Name <span style="font-weight:400; color: var(--text-muted);">(for internal use and monitoring purposes)</span></label>
+            <input type="text" id="preferred-name" name="preferred-name" placeholder="What should we call you?">
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required placeholder="you@example.com">
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required placeholder="+1 (000) 000-0000">
+          </div>
+
+          <div class="form-group">
+            <label for="role">Position</label>
+            <select id="role" name="role" required>
+              <option value="" disabled selected>Select a role</option>
+              <option value="field-researcher">Field Researcher — Community Sciences Division</option>
+              <option value="dialogue-designer">Companion Dialogue Designer — Bestie 3.0</option>
+              <option value="compliance-specialist">Regulatory Compliance Specialist — Oral Connectivity</option>
+              <option value="separation-analyst">Separation Index Analyst</option>
+              <option value="exec-comms">Executive Communications Coordinator — Board of Stewardship</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="linkedin">LinkedIn Profile URL</label>
+            <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/yourname">
+          </div>
+
+          <div class="form-group">
+            <label for="cover-letter">Cover Letter / Message</label>
+            <textarea id="cover-letter" name="cover-letter" placeholder="Tell us why you'd like to join Carrefoogle. Be specific. We will be."></textarea>
+          </div>
+
+          <div class="form-consent">
+            <input type="checkbox" id="consent" name="consent" required>
+            <label for="consent">I acknowledge that submitting this application constitutes consent to behavioral profiling, predictive career modeling, and inclusion in Carrefoogle&rsquo;s Talent Graph. I understand this consent is irrevocable and extends to professional contacts referenced in my application materials.</label>
+          </div>
+
+          <button type="submit" class="form-submit">Submit Application</button>
+
+          <p class="form-fine-print">By clicking &ldquo;Submit Application,&rdquo; you agree to Carrefoogle&rsquo;s Candidate Data Policy (rev. 2026.3). Application data is retained indefinitely. Carrefoogle may contact you regarding positions you did not apply for, in divisions you are not aware of, at times determined by our Talent Alignment algorithms. Submission does not guarantee review. Review does not guarantee acknowledgment. Acknowledgment does not constitute an offer of employment or of any other kind.</p>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="maintenance.html">About Us</a></li>
+            <li><a href="leadership.html">Leadership</a></li>
+            <li><a href="maintenance.html">Governance</a></li>
+            <li><a href="our-story.html">Our History</a></li>
+            <li><a href="maintenance.html">Locations</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Businesses</h4>
+          <ul>
+            <li><a href="maintenance.html">Carrefood&trade;</a></li>
+            <li><a href="maintenance.html">Health</a></li>
+            <li><a href="maintenance.html">Energy</a></li>
+            <li><a href="maintenance.html">Finance</a></li>
+            <li><a href="maintenance.html">Media</a></li>
+            <li><a href="maintenance.html">Aerospace</a></li>
+            <li><a href="maintenance.html">Community Sciences</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="maintenance.html">Bestie 3.0</a></li>
+            <li><a href="maintenance.html">Bluetooth Toothpaste&trade;</a></li>
+            <li><a href="maintenance.html">Enterprise</a></li>
+            <li><a href="maintenance.html">Developer Portal</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Investors</h4>
+          <ul>
+            <li><a href="maintenance.html">Annual Report</a></li>
+            <li><a href="maintenance.html">SEC Filings</a></li>
+            <li><a href="maintenance.html">GTM Metrics</a></li>
+            <li><a href="maintenance.html">Earnings</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="maintenance.html">Privacy</a></li>
+            <li><a href="maintenance.html">Terms</a></li>
+            <li><a href="maintenance.html">Cookies</a></li>
+            <li><a href="maintenance.html">Accessibility</a></li>
+            <li><a href="maintenance.html">Sponsorship Terms</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Carrefoogle Corporation. All rights reserved. All wrongs forgiven.</p>
+        <p class="footer-fine">Carrefoogle Corporation, est. 1939. Carrefoogle, Carrefood, Bestie, Active Silence Engine, Loneliness Detection, Bluetooth Toothpaste, and &ldquo;Because you deserve easy&rdquo; are registered trademarks of Carrefoogle Corporation. The likenesses of Harold Foogle and Margaret Carrey are the intellectual property of Carrefoogle Corporation and may not be reproduced without written consent. Goodtimesium (GTM) metrics are measured using proprietary methodology. Satisfaction scores reflect Bestie-mediated interactions only.</p>
+      </div>
+    </footer>
+
+    <script src="assets/js/animations.js"></script>
+  </body>
+</html>
