@@ -807,7 +807,8 @@ body {
   }
 
   /* Intro */
-  .intro-text {
+  .intro-text,
+  .prompt-leak {
     font-size: 16px;
   }
 }
