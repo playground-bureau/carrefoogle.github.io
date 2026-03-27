@@ -417,6 +417,14 @@ body {
   font-size: 11px;
 }
 
+.prompt-leak {
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--text-light);
+  font-style: italic;
+  margin-bottom: 32px;
+}
+
 .rounded-img {
   width: 100%;
   height: auto;
