@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+#
+# Stamps all CSS/JS asset references in HTML files with a cache-busting
+# query string based on the current timestamp. Run before committing.
+#
+# Usage: bin/cachebust
+
+set -euo pipefail
+cd "$(dirname "$0")/.."
+
+HASH=$(date +%s | shasum | head -c 8)
+
+echo "Cache-busting with v=$HASH"
+
+find . -maxdepth 1 -name '*.html' -print0 | xargs -0 perl -pi -e '
+  s{(assets/(?:css|js)/[^"?\s]+)\?v=[a-f0-9]+}{$1}g;
+  s{(assets/(?:css|js)/[^"?\s]+)}{$1?v='"$HASH"'}g;
+'
+
+COUNT=$(grep -rl "?v=$HASH" --include='*.html' . | wc -l | tr -d ' ')
+echo "Done. Updated $COUNT files."
