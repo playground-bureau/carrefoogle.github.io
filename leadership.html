@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
     <meta name="description" content="Carrefoogle Corporation leadership. A governance structure designed to ensure that no single individual is responsible for any one decision.">
-    <link rel="stylesheet" href="assets/css/base.css?v=b7f7aa39">
+    <link rel="stylesheet" href="assets/css/base.css?v=50db17e1">
     <style>
       .org-chart-container {
         max-width: 1000px;
@@ -69,8 +69,8 @@
 
     <!-- Intro -->
     <section class="section section-intro reveal" style="padding-top: 24px;">
-      <p class="intro-text">At Carrefoogle, no single individual is responsible for any one decision. Our governance model distributes leadership across interlocking bodies of equal standing, designed for resilience, continuity, and the principled diffusion of responsibility. No body listed below holds authority over any other.</p>
-      <p class="body-text" style="text-align: center;">Since 2024, our governance framework has been maintained and periodically refined using proprietary alignment tools to ensure maximum structural resilience.</p>
+      <p class="intro-text">At Carrefoogle, we believe the fastest path to a decision is one where no single individual can be blamed for it. Leadership is distributed across 147 interlocking bodies of equal standing so that decisions can be made quickly, confidently, and by no one in particular.</p>
+      <p class="body-text" style="text-align: center;">Coordination between bodies is handled by <strong>Bestee&trade;</strong>, which takes care of the small things&mdash;drafting agendas, circulating recommendations, implementing decisions, and determining which decisions require approval&mdash;so our human leaders can focus on what matters most: focusing on leadership.</p>
     </section>
 
     <!-- Org Chart -->
@@ -85,7 +85,7 @@
       </div>
 
       <p class="fine-print" style="text-align: center; margin-top: 32px; font-size: 11px;">Showing 13 of 147 active governance bodies.</p>
-      <p class="fine-print" style="text-align: center; margin-top: 24px; font-size: 9px; line-height: 1.5; max-width: 700px; margin-left: auto; margin-right: auto;">Displaying all governance relationships would require approximately 10,731 bidirectional reporting lines. For a complete governance map, submit a request through the Inter-Divisional Synergy Coordination Office, which will route it to the appropriate body within 6&ndash;8 weeks. Governance structure last optimized November 2024 (Bestee&trade; 2.0). Next scheduled optimization: Q1 2027 (Bestee&trade; 3.0).</p>
+      <p class="fine-print" style="text-align: center; margin-top: 24px; font-size: 9px; line-height: 1.5; max-width: 700px; margin-left: auto; margin-right: auto;">Displaying all governance relationships would require approximately 10,731 bidirectional reporting lines. For a complete governance map, submit a request through the Inter-Divisional Synergy Coordination Office, which will route it to the appropriate body within 6&ndash;8 weeks.</p>
     </section>
 
     <!-- Footer -->
@@ -148,7 +148,7 @@
       </div>
     </footer>
 
-    <script src="assets/js/animations.js?v=b7f7aa39"></script>
+    <script src="assets/js/animations.js?v=50db17e1"></script>
     <script>
     (function () {
       var nodes = [
@@ -167,48 +167,246 @@
         { x: 820, y: 355, label: 'Ethics Alignment Office' },
         { x: 340, y: 440, label: 'Governance Oversight Council' },
         { x: 660, y: 440, label: 'Committee Review Committee' },
+        { x: 500, y: 135, label: 'Synergy Task Force', deprecated: true },
+      ];
+
+      // Line styles: s=solid, d=dashed, dt=dotted, th=thick
+      // Colors: g=gray, b=blue, r=red, gn=green, o=orange
+      // [from, to, curve, style, color, label]
+      var connections = [
+        // Top row down — normal-looking
+        [0,2,0,'s','g'],[0,3,0,'s','g'],[0,4,0,'s','g'],
+        [1,3,0,'s','g'],[1,4,0,'s','g'],[1,5,0,'d','b'],
+        // Upward — subordinates overseeing superiors
+        [6,0,-20,'dt','r'],[9,1,20,'d','o'],[7,0,30,'s','g'],[8,1,-30,'dt','b'],
+        // Cross-row
+        [2,8,40,'d','gn'],[5,6,-50,'th','r'],[3,9,0,'s','g'],[4,7,-35,'d','b'],
+        // Yogurt Group
+        [5,4,0,'dt','o'],[5,9,0,'d','g'],[5,12,60,'th','gn'],
+        // Middle row
+        [6,7,0,'s','g'],[7,8,0,'d','b'],[8,9,0,'s','g'],[6,9,50,'dt','r'],
+        // Down to row 4
+        [6,10,0,'s','g'],[7,10,0,'d','g'],[7,11,0,'s','b'],
+        [8,11,0,'d','gn'],[8,12,0,'s','g'],[9,12,0,'dt','o'],
+        // Bottom row UP
+        [10,2,40,'d','r'],[11,3,-30,'dt','b'],[12,4,45,'s','gn'],
+        [10,0,-60,'th','o'],[12,1,55,'d','r'],
+        // Bottom cross
+        [10,11,0,'s','g'],[11,12,0,'d','b'],[10,12,70,'dt','g'],
+        // Down to last row
+        [10,13,0,'s','g'],[11,13,0,'d','gn'],[11,14,0,'s','g'],[12,14,0,'dt','b'],
+        // Last row UP
+        [13,0,80,'d','r'],[14,1,-80,'th','o'],[13,7,-25,'s','g'],[14,8,25,'dt','gn'],
+        [13,14,0,'s','g'],
+        // Long diagonals
+        [2,14,60,'dt','o'],[5,13,-70,'d','r'],[6,12,55,'s','b'],[9,10,-45,'d','g'],
+        // Circular refs
+        [3,6,30,'dt','gn'],[4,9,-30,'s','o'],[2,11,-50,'d','b'],[5,10,55,'dt','r'],
+        // Density
+        [0,1,25,'d','g'],[13,12,30,'s','b'],[14,10,-35,'dt','o'],[7,12,40,'d','gn'],[6,11,-30,'s','r'],
+        // Deprecated connections (still active somehow)
+        [0,15,0,'dt','r'],[15,3,0,'dt','r'],[15,4,0,'dt','r'],[1,15,15,'dt','r'],
+      ];
+
+      // Labels on certain connections (index into connections array)
+      var connLabels = {
+        6: 'interim',
+        10: 'advisory',
+        17: 'pending review',
+        24: 'under review',
+        30: 'provisional',
+        37: 'legacy',
+        41: 'see footnote 3',
+        48: 'disputed',
+      };
+
+      // Self-referencing loops: [node index, direction]
+      var selfLoops = [
+        [6, 'right'],   // Governance Renewal reviews itself
+        [14, 'left'],   // Committee Review Committee reviews itself
       ];
 
       var svg = document.getElementById('org-chart');
       var bw = 150, bh = 36, r = 4;
-      var i, j, x1, y1, x2, y2;
+      var ns = 'http://www.w3.org/2000/svg';
 
-      // Draw all connection lines first
-      for (i = 0; i < nodes.length; i++) {
-        for (j = i + 1; j < nodes.length; j++) {
-          x1 = nodes[i].x; y1 = nodes[i].y;
-          x2 = nodes[j].x; y2 = nodes[j].y;
-          var line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-          line.setAttribute('x1', x1);
-          line.setAttribute('y1', y1);
-          line.setAttribute('x2', x2);
-          line.setAttribute('y2', y2);
-          line.setAttribute('stroke', '#d0d0d0');
-          line.setAttribute('stroke-width', '0.6');
-          svg.appendChild(line);
+      // Color map
+      var colors = { g: '#c8c8c8', b: '#7da7d4', r: '#d48a7d', gn: '#7db87d', o: '#d4b07d' };
+
+      // Marker definitions — one per color
+      var defs = document.createElementNS(ns, 'defs');
+      var colorKeys = ['g','b','r','gn','o'];
+      for (var ci = 0; ci < colorKeys.length; ci++) {
+        var mk = document.createElementNS(ns, 'marker');
+        mk.setAttribute('id', 'arrow-' + colorKeys[ci]);
+        mk.setAttribute('viewBox', '0 0 10 10');
+        mk.setAttribute('refX', '9');
+        mk.setAttribute('refY', '5');
+        mk.setAttribute('markerWidth', '5');
+        mk.setAttribute('markerHeight', '5');
+        mk.setAttribute('orient', 'auto-start-reverse');
+        var ap = document.createElementNS(ns, 'path');
+        ap.setAttribute('d', 'M 0 1 L 10 5 L 0 9 z');
+        ap.setAttribute('fill', colors[colorKeys[ci]]);
+        mk.appendChild(ap);
+        defs.appendChild(mk);
+      }
+      svg.appendChild(defs);
+
+      function edgePoint(from, to, half_w, half_h) {
+        var dx = to.x - from.x, dy = to.y - from.y;
+        if (dx === 0 && dy === 0) return { x: from.x, y: from.y };
+        var sx = Math.abs(dy * half_w) < Math.abs(dx * half_h) ?
+          (dx > 0 ? half_w : -half_w) / Math.abs(dx) :
+          (dy > 0 ? half_h : -half_h) / Math.abs(dy);
+        return { x: from.x + dx * sx, y: from.y + dy * sx };
+      }
+
+      // Draw connections
+      var hw = bw / 2, hh = bh / 2;
+      for (var c = 0; c < connections.length; c++) {
+        var conn = connections[c];
+        var fi = conn[0], ti = conn[1], curve = conn[2], style = conn[3], col = conn[4];
+        var from = nodes[fi], to = nodes[ti];
+        var p1 = edgePoint(from, to, hw, hh);
+        var p2 = edgePoint(to, from, hw, hh);
+        var strokeColor = colors[col] || colors.g;
+        var strokeW = style === 'th' ? 1.8 : 0.8;
+        var dash = style === 'd' ? '6,3' : style === 'dt' ? '2,3' : 'none';
+
+        var el;
+        if (curve === 0) {
+          el = document.createElementNS(ns, 'line');
+          el.setAttribute('x1', p1.x); el.setAttribute('y1', p1.y);
+          el.setAttribute('x2', p2.x); el.setAttribute('y2', p2.y);
+        } else {
+          var mx = (p1.x + p2.x) / 2, my = (p1.y + p2.y) / 2;
+          var ddx = p2.x - p1.x, ddy = p2.y - p1.y;
+          var len = Math.sqrt(ddx * ddx + ddy * ddy) || 1;
+          var nx = -ddy / len, ny = ddx / len;
+          el = document.createElementNS(ns, 'path');
+          el.setAttribute('d', 'M ' + p1.x + ' ' + p1.y + ' Q ' + (mx + nx * curve) + ' ' + (my + ny * curve) + ' ' + p2.x + ' ' + p2.y);
+          el.setAttribute('fill', 'none');
+        }
+        el.setAttribute('stroke', strokeColor);
+        el.setAttribute('stroke-width', strokeW);
+        if (dash !== 'none') el.setAttribute('stroke-dasharray', dash);
+        el.setAttribute('marker-end', 'url(#arrow-' + col + ')');
+        svg.appendChild(el);
+
+        // Connection label
+        if (connLabels[c]) {
+          var lx = (p1.x + p2.x) / 2, ly = (p1.y + p2.y) / 2;
+          if (curve !== 0) {
+            var cmx = (p1.x + p2.x) / 2, cmy = (p1.y + p2.y) / 2;
+            var cdx = p2.x - p1.x, cdy = p2.y - p1.y;
+            var clen = Math.sqrt(cdx * cdx + cdy * cdy) || 1;
+            lx = cmx + (-cdy / clen) * curve * 0.5;
+            ly = cmy + (cdx / clen) * curve * 0.5;
+          }
+          var lt = document.createElementNS(ns, 'text');
+          lt.setAttribute('x', lx); lt.setAttribute('y', ly - 4);
+          lt.setAttribute('text-anchor', 'middle');
+          lt.setAttribute('font-size', '6');
+          lt.setAttribute('fill', '#999');
+          lt.setAttribute('font-style', 'italic');
+          lt.setAttribute('font-family', '-apple-system, BlinkMacSystemFont, sans-serif');
+          lt.textContent = connLabels[c];
+          svg.appendChild(lt);
         }
       }
 
+      // Self-referencing loops
+      for (var si = 0; si < selfLoops.length; si++) {
+        var sn = nodes[selfLoops[si][0]];
+        var dir = selfLoops[si][1];
+        var lrSign = dir === 'right' ? 1 : -1;
+        var sx = sn.x + lrSign * hw;
+        var loopPath = document.createElementNS(ns, 'path');
+        loopPath.setAttribute('d',
+          'M ' + sx + ' ' + (sn.y - 8) +
+          ' C ' + (sx + lrSign * 40) + ' ' + (sn.y - 35) +
+          ' ' + (sx + lrSign * 40) + ' ' + (sn.y + 35) +
+          ' ' + sx + ' ' + (sn.y + 8));
+        loopPath.setAttribute('fill', 'none');
+        loopPath.setAttribute('stroke', colors.o);
+        loopPath.setAttribute('stroke-width', '0.8');
+        loopPath.setAttribute('stroke-dasharray', '4,2');
+        loopPath.setAttribute('marker-end', 'url(#arrow-o)');
+        svg.appendChild(loopPath);
+      }
+
       // Draw nodes on top
-      for (i = 0; i < nodes.length; i++) {
+      for (var i = 0; i < nodes.length; i++) {
         var n = nodes[i];
-        var rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-        rect.setAttribute('x', n.x - bw / 2);
-        rect.setAttribute('y', n.y - bh / 2);
-        rect.setAttribute('width', bw);
-        rect.setAttribute('height', bh);
+        var rect = document.createElementNS(ns, 'rect');
+        rect.setAttribute('x', n.x - hw); rect.setAttribute('y', n.y - hh);
+        rect.setAttribute('width', bw); rect.setAttribute('height', bh);
         rect.setAttribute('rx', r);
-        rect.setAttribute('fill', '#ffffff');
-        rect.setAttribute('stroke', '#ccc');
+        rect.setAttribute('fill', n.deprecated ? '#f8f4f4' : '#ffffff');
+        rect.setAttribute('stroke', n.deprecated ? '#d4a0a0' : '#ccc');
         rect.setAttribute('stroke-width', '1');
+        if (n.deprecated) rect.setAttribute('stroke-dasharray', '4,2');
         svg.appendChild(rect);
 
-        var text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-        text.setAttribute('x', n.x);
-        text.setAttribute('y', n.y + 3.5);
+        var text = document.createElementNS(ns, 'text');
+        text.setAttribute('x', n.x); text.setAttribute('y', n.y + 3.5);
         text.setAttribute('class', 'chart-label');
+        if (n.deprecated) {
+          text.setAttribute('fill', '#bbb');
+          text.setAttribute('text-decoration', 'line-through');
+        }
         text.textContent = n.label;
         svg.appendChild(text);
+
+        // Deprecated badge
+        if (n.deprecated) {
+          var badge = document.createElementNS(ns, 'text');
+          badge.setAttribute('x', n.x + hw - 4); badge.setAttribute('y', n.y - hh + 8);
+          badge.setAttribute('text-anchor', 'end');
+          badge.setAttribute('font-size', '5');
+          badge.setAttribute('fill', '#d48a7d');
+          badge.setAttribute('font-family', '-apple-system, BlinkMacSystemFont, sans-serif');
+          badge.setAttribute('font-weight', '700');
+          badge.textContent = 'DISSOLVED 2019';
+          svg.appendChild(badge);
+        }
+      }
+
+      // Legend
+      var legendX = 20, legendY = 475;
+      var legendItems = [
+        { label: 'Direct governance', style: 's', color: 'g' },
+        { label: 'Advisory oversight', style: 'd', color: 'b' },
+        { label: 'Reverse accountability', style: 'dt', color: 'r' },
+        { label: 'Lateral coordination', style: 'd', color: 'gn' },
+        { label: 'Provisional / under review', style: 'dt', color: 'o' },
+        { label: 'Escalation pathway', style: 'th', color: 'r' },
+      ];
+
+      // Extend viewBox to fit legend
+      svg.setAttribute('viewBox', '0 0 1000 510');
+
+      for (var li = 0; li < legendItems.length; li++) {
+        var item = legendItems[li];
+        var lx = legendX + li * 165;
+        var line = document.createElementNS(ns, 'line');
+        line.setAttribute('x1', lx); line.setAttribute('y1', legendY);
+        line.setAttribute('x2', lx + 25); line.setAttribute('y2', legendY);
+        line.setAttribute('stroke', colors[item.color]);
+        line.setAttribute('stroke-width', item.style === 'th' ? 1.8 : 0.8);
+        if (item.style === 'd') line.setAttribute('stroke-dasharray', '6,3');
+        if (item.style === 'dt') line.setAttribute('stroke-dasharray', '2,3');
+        line.setAttribute('marker-end', 'url(#arrow-' + item.color + ')');
+        svg.appendChild(line);
+
+        var lt = document.createElementNS(ns, 'text');
+        lt.setAttribute('x', lx + 30); lt.setAttribute('y', legendY + 3);
+        lt.setAttribute('font-size', '7');
+        lt.setAttribute('fill', '#999');
+        lt.setAttribute('font-family', '-apple-system, BlinkMacSystemFont, sans-serif');
+        lt.textContent = item.label;
+        svg.appendChild(lt);
       }
     })();
     </script>
