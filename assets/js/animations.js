@@ -19,6 +19,26 @@
     }
   });
 
+  // Promo bar fake-dismiss
+  window.addEventListener('DOMContentLoaded', function () {
+    var dismiss = document.querySelector('.promo-dismiss');
+    if (!dismiss) return;
+    dismiss.addEventListener('click', function () {
+      var bar = dismiss.closest('.promo-bar');
+      if (!bar) return;
+      var text = bar.querySelector('.promo-text');
+      var badge = bar.querySelector('.promo-badge');
+      if (badge) badge.remove();
+      var pad = function (n) { return ('0000' + n).slice(-4); };
+      var ticket = 'C-' + pad(Math.floor(Math.random() * 9000 + 1000)) + '-' + pad(Math.floor(Math.random() * 9000 + 1000));
+      if (text) {
+        text.innerHTML = 'Dismissal request received (Ticket #' + ticket + '). Estimated processing: 6–8 weeks.';
+      }
+      bar.classList.add('is-dismissed');
+      dismiss.remove();
+    });
+  });
+
   // Scroll reveals
   if (!('IntersectionObserver' in window)) return; // graceful degradation
 
